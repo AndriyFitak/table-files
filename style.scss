@@ -1,0 +1,231 @@
+$colorPanel: #F4F7FC;
+@mixin flexElement($justify, $align){
+    display: flex;
+    justify-content: $justify;
+    align-items: $align;
+}
+@mixin panelText($weight,$color){
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: $weight;
+    font-size: 12px;
+    line-height: 15px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: $color;
+}
+@mixin btn($width,$color){
+    margin: 0 11px;
+    width: $width;
+    height: 40px;
+    border:none;
+    cursor: pointer;
+    border-radius: 4px;
+    background: $color;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 17px;
+    color: #FFFFFF;
+}
+@mixin row($background){
+    height: 45px;
+    background: $background;
+ 
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.files{
+    width: 1200px;
+    height: 800px;
+    border:1px solid black;
+    filter: drop-shadow(0px 3px 6px rgba(75, 81, 91, 0.15)) drop-shadow(0px 1px 3px rgba(0, 0, 0, 0.15));
+    &_panel{ 
+        width: 100%;
+        height: 159px;
+        background: $colorPanel;
+        &_upper {
+            margin-left: 34px;
+            @include flexElement(flex-start,center);
+            width: 100%;
+            height: 90px;
+            &_storage{ 
+                width: 346px;
+                height: 30px;
+                margin-right: 66px;
+                p {
+                    @include panelText(400,#437FEC);
+                }
+            }
+            &_result{ 
+                @include flexElement(space-around,center);
+                width: 304px;
+                &_info{ 
+                    @include panelText(400,#606F89);
+                }
+                &_size{
+                    @include panelText(600,#606F89);
+                }
+            }
+            &_inputSize{ 
+                @include flexElement(center,center);
+                margin-left: 6px;
+                margin-right: 11px;
+                width: 97px;
+                height: 40px;
+                border-radius: 4px;
+                background: #DAE1EC;
+                input{
+                    width: 29px;
+                    height: 23px;
+                    border: none;
+                    background:none;
+                    &:focus{
+                        outline: none;
+                        border:none;
+                    }
+                }
+            }
+            &_btnFolder{ 
+                @include btn(148px,#913E98);
+            }
+            &_btnUpload{
+                @include btn(148px,#F04438);
+            }
+        }   
+        &_down{
+            width: 100%;
+            height: 69px;
+            &_searchPanel{
+                margin-left: 80px;
+                width: 357px;
+                height: 40px;
+                border-radius: 4px;
+                background: #a9a9a9;
+            }
+            .inputSearch{
+                width: 270px;
+                border: none;
+                background: none;
+                margin-left: 50px;
+                margin-top: 10px;
+                &:focus{
+                    outline: none;
+                    border: none;
+                }
+                &::placeholder{
+                    @include panelText(400,rgb(58, 54, 54));
+                }
+            }
+        }
+        
+        
+    }
+    &_table{
+        width: 100%;
+        tr{
+            @include flexElement(flex-start,flex-start )
+        }
+        &_greyRow{
+            background-color: gold;
+            @include row(#F4F7FC)
+            
+
+        }
+        &_whiteRow{
+            background-color: gold;
+            @include row(#ffffff)
+        }
+    }
+
+}
+.td{
+    &_checkbox{
+    width: 80px;
+    @include flexElement(center,center);
+    
+        input{
+          width: 20px;
+          height: 40px; 
+        }
+    }
+    &_type{
+        width: 60px;
+        @include flexElement(center,center );
+        
+        height: 45px;
+    }
+    &_name{
+        width: 338px;
+        @include flexElement(flex-start,center );
+        
+        height: 45px;
+        
+
+    }
+    &_fileCount{
+        width: 166px;
+        @include flexElement(flex-start,center );
+        
+        height: 45px;        
+    }
+    &_Date{
+        width: 160px;
+        @include flexElement(flex-start,center );
+        
+        height: 45px; 
+    }
+    &_dl{
+        width: 60px;
+        @include flexElement(flex-start,center );
+        
+        height: 45px; 
+
+        
+    }
+    &_size{
+        width: 100px;
+        @include flexElement(flex-start,center );
+        
+        height: 45px; 
+    }
+    &_access{
+        width: 10px;
+        @include flexElement(flex-start,center );
+        
+        height: 45px; 
+    }
+    &_vector{
+        width: 30px;
+        
+        @include flexElement(flex-start,center );
+        
+        height: 45px; 
+        margin-left: 100px
+        
+        
+    }
+    &_vectorsvg{
+        margin-left: 80px;
+        margin-top: 10px;
+    }
+
+}
+.btn{
+    width: 49px;
+height: 20px;
+left: calc(50% - 49px/2 - 0.5px);
+top: calc(50% - 20px/2);
+
+/* Primary */
+
+background: #0A65FF;
+border-radius: 11px;
+color: white;
+border: none;
+}
